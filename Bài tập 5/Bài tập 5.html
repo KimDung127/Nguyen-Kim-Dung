@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+        <h3> Tạo tài khoản cá nhân của bạn</h3>
+        <script language="javascript">
+        function FormTen()
+        {
+            var t = document.forms["Formcuatoi"]["Ten"].value;
+            if (t == "")
+            {
+                alert("Tên người dùng không được để trống");
+                return false;
+            }
+            /////////
+            var e = document.forms["Formcuatoi"]["Email"].value;
+            if (e == "")
+            {
+                alert("Email người dùng không được để trống");
+                return false;
+            }
+            var reg_mail = /^[A-Za-z0-9]+([_\.\-]?[A-Za-z0-9])*@[A-Za-z0-9]+([\.\-]?[A-Za-z0-9]+)*(\.[A-Za-z]+)+$/;
+                if(reg_mail.test(e) == false)
+                { 
+                    alert("Email không hợp lệ (ví dụ: abc@gmail.com)");
+                }
+            //////////
+            var p = document.forms["Formcuatoi"]["Pass"].value;
+            if (p == "")
+            {
+                alert("Pass người dùng không được để trống");
+                return false;
+            }
+            if(p.length <6)
+                {
+                    alert("Mật khẩu quá ngắn (tối thiểu là 7 ký tự)");
+                    return false;
+                    
+                }
+            if(p== p.toUpperCase())
+                {
+                        alert("Mật khẩu cần ít nhất một chữ thường");
+                        return false;
+                    }
+            /////////
+            if(FormTen!= false) 
+            {
+                alert("Đăng kí tài khoản thành công");
+            }
+        }
+        
+        
+        </script>
+    </head>
+    <body>
+        <form name="Formcuatoi">
+        Tên người dùng: <input type="text" name="Ten" id="Ten">
+        <br>
+        Địa chỉ email: <input type="text" name="Email" id="Email">
+        <br>
+        Mật khẩu: <input type="text" name="Pass" id="Pass">  
+        </form>
+        
+        <button onclick="FormTen();">Tạo một tài khoản</button>
+    </body>
+</html>
